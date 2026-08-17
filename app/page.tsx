@@ -343,7 +343,7 @@ function Login({ go }: { go: (x: V) => void }) {
           <p>Enter your details to continue to your account.</p>
           <label>
             Email address
-            <input type="email" defaultValue="Esaint Mjay@example.com" />
+            <input type="email" defaultValue="esaintmjay@tekabill.com" />
           </label>
           <label>
             Password
@@ -404,7 +404,7 @@ function Shell({
           <button onClick={() => go("admin")}>◇ &nbsp; Admin demo</button>
           <button>? &nbsp; Help & support</button>
           <div className="user">
-            <b>DA</b>
+            <b>EM</b>
             <p>
               <strong>Esaint Mjay</strong>
               <span>Tier 2 verified</span>
@@ -421,7 +421,7 @@ function Shell({
           <label className="search">
             ⌕ <input placeholder="Search transactions, bills..." />
           </label>
-          <div className="avatar">DA</div>
+          <div className="avatar">EM</div>
         </header>
         {children}
         <nav className="bottom-nav">
