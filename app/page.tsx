@@ -1,5 +1,15 @@
 "use client";
 import { useState } from "react";
+
+function getDayGreeting() {
+  const now = new Date();
+  const hour = now.getHours();
+  const day = now.toLocaleDateString("en-US", { weekday: "long" }).toUpperCase();
+  const date = now.toLocaleDateString("en-US", { day: "numeric", month: "long" }).toUpperCase();
+  const greeting =
+    hour < 12 ? "Good morning" : hour < 16 ? "Good afternoon" : "Good evening";
+  return { label: `${day}, ${date}`, greeting };
+}
 type V =
   | "home"
   | "login"
@@ -234,7 +244,7 @@ function Phone() {
       <div className="phone">
         <div className="phone-head">
           <b>P</b>
-          <span>Good morning, David</span>
+          <span>Good morning, Esaint Mjay</span>
           <i>⌁</i>
         </div>
         <small>Available balance</small>
@@ -333,7 +343,7 @@ function Login({ go }: { go: (x: V) => void }) {
           <p>Enter your details to continue to your account.</p>
           <label>
             Email address
-            <input type="email" defaultValue="david@example.com" />
+            <input type="email" defaultValue="Esaint Mjay@example.com" />
           </label>
           <label>
             Password
@@ -396,7 +406,7 @@ function Shell({
           <div className="user">
             <b>DA</b>
             <p>
-              <strong>David Armstrong</strong>
+              <strong>Esaint Mjay</strong>
               <span>Tier 2 verified</span>
             </p>
             <button onClick={() => go("home")}>↪</button>
@@ -488,11 +498,12 @@ function Tx({ t }: { t: (typeof tx)[number] }) {
   );
 }
 function Dashboard({ go }: { go: (x: V) => void }) {
+  const { label, greeting } = getDayGreeting();
   return (
     <div className="screen">
       <ST
-        over="MONDAY, 16 AUGUST"
-        title="Good morning, David 👋"
+        over={label}
+        title={`${greeting}, Esaint 👋`}
         text="Here’s what’s happening with your money today."
         action={
           <button className="primary small" onClick={() => go("pay")}>
@@ -717,7 +728,7 @@ function Wallet() {
           <small>YOUR TEKABILL ACCOUNT</small>
           <h3>Wema Bank</h3>
           <h2>9374 201 663</h2>
-          <p>DAVID ARMSTRONG</p>
+          <p>Esaint Mjay</p>
           <button>▣ Copy account number</button>
         </div>
       </div>
@@ -776,9 +787,9 @@ function Profile() {
       />
       <div className="profile-grid">
         <section className="panel profile">
-          <div>DA</div>
-          <h2>David Armstrong</h2>
-          <p>david@example.com</p>
+          <div>EM</div>
+          <h2>Esaint Mjay</h2>
+          <p>esaintmay@example.com</p>
           <span>✓ Tier 2 verified</span>
           <button className="outline">Edit personal information</button>
         </section>
@@ -841,9 +852,9 @@ function Admin({ go }: { go: (x: V) => void }) {
             <h1>Platform overview</h1>
           </div>
           <div className="admin-user">
-            <span>OA</span>
+            <span>EM</span>
             <p>
-              <b>Olamide Adeyemi</b>
+              <b>Esaint Mjay</b>
               <small>Super administrator</small>
             </p>
           </div>
@@ -922,7 +933,7 @@ function Admin({ go }: { go: (x: V) => void }) {
                     <td>
                       {
                         [
-                          "David Armstrong",
+                          "Esaint Mjay",
                           "Nneka Obi",
                           "Tunde Akinola",
                           "Maryam Bello",
